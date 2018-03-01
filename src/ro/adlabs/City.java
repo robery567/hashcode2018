@@ -40,7 +40,9 @@ public class City {
 
         checkCars(-1);
         for (int i = 0; i < steps; i++) {
-            System.out.printf("Processing step %dfrom %d%n", i, steps);
+            if (i % 1000 == 0) {
+                System.out.printf("Processing step %dfrom %d%n", i, steps);
+            }
             moveCars();
 
             checkCars(i);
@@ -54,6 +56,9 @@ public class City {
 
                 if(optimumRide != null) {
                     vehicle.setAssignedRide(optimumRide);
+
+                    int index = rides.indexOf(optimumRide);
+                    Ride removed = rides.remove(index);
                     optimumRide.setAssigned(true);
                 }
             }

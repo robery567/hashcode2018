@@ -68,19 +68,19 @@ public class Vehicle {
         Ride nearest = findFirstFreeRide(rides);
         if(nearest == null) return null;
 
-        int min = Utility.distance(location, nearest.getStart());
+        float punctDeRaportare = 100000000;
+
         for(Ride ride : rides) {
             int distance = Utility.distance(location, ride.getStart());
 
-            if(ride.isAssigned() || !hasTime(distance, currentStep, totalSteps)) continue;
+            if(!hasTime(distance, currentStep, totalSteps)) continue;
 
-            if(distance == ride.getEarliest()) {
-                return ride;
-            }
+            int min = ride.getEarliest() - (currentStep + distance);
 
-            if(distance < min) {
+
+            if(min >= 0 && min < punctDeRaportare) {
                 nearest = ride;
-                min = distance;
+                punctDeRaportare = min;
             }
         }
 

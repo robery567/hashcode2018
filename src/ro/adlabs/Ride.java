@@ -48,6 +48,10 @@ public class Ride implements Comparable<Ride> {
         this.assigned = assigned;
     }
 
+    public int getPossiblePoints() {
+        return possiblePoints;
+    }
+
     @Override
     public int compareTo(Ride ride) {
         if(possiblePoints == ride.possiblePoints) return 0;

@@ -9,9 +9,9 @@ public class Main {
 
         String[] inputs = {"a_example.in", "b_should_be_easy.in", "c_no_hurry.in", "d_metropolis.in", "e_high_bonus.in"};
 
-        int limit = 3;
+        int limit = 5;
         for(int i = 0; i < limit; i++) {
-            System.out.println("Processing file " + i);
+            System.out.printf("Processing file %d%n", i);
             String fileIn = inputs[i];
 
             File in = new File(fileIn);
